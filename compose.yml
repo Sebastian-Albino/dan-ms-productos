@@ -1,6 +1,8 @@
 services:
   db:
     image: postgres:15
+    #env_file:
+     # - /home/sebastian/Desktop/Mis-Cosas/UTN-Seba-Escritorio/5to/2C/Desarrollo-Web/TP/credenciales.env
     restart: always
     environment:
       POSTGRES_PASSWORD: ${DB_PASS}
@@ -15,6 +17,8 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4:latest
+    #env_file:
+      #- /home/sebastian/Desktop/Mis-Cosas/UTN-Seba-Escritorio/5to/2C/Desarrollo-Web/TP/credenciales.env
     container_name: pgadmin-container
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
