@@ -84,7 +84,7 @@ async function updateOrden(idOrden, orden) {
     try{
         return await prisma.ordenProvision.update({
             where: {
-                id: parseInt(idProd)
+                id: parseInt(idOrden)
             },
             data: {
             fechaGeneracion: orden.fechaGeneracion,
@@ -99,7 +99,7 @@ async function updateOrden(idOrden, orden) {
     }
 }
 
-async function updateEstadoOrden(idProd, fechaRecep){
+async function updateEstadoOrden(idOrden, fechaRecep){
 
     try{
 
@@ -107,7 +107,7 @@ async function updateEstadoOrden(idProd, fechaRecep){
         if(!recibida){
             return await prisma.ordenProvision.update({
                 where:{
-                    id: parseInt(idProd)
+                    id: parseInt(idOrden)
                 },
                 data: {
                     esCancelada: true

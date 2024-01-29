@@ -76,18 +76,18 @@ async function getDetalleByProductoId(prodId){
 
 
 
-async function updateDetalle(idOrden, orden) {
+async function updateDetalle(idDetalle, detalle) {
     
     try{
-        return await prisma.ordenProvision.update({
+        return await prisma.ordenProvisionDetalle.update({
             where: {
-                id: parseInt(idProd)
+                id: parseInt(idDetalle)
             },
             data: {
-            fechaGeneracion: orden.fechaGeneracion,
-            fechaRecepcion: orden.fechaGeneracion,
-            esCancelada: orden.esCancelada,
-            proveedorId: {connect: {id: prod.proveedorId}}
+            cantidad: detalle.cantidad,
+            precio: detalle.precio,
+            ordenProvisionId: {connect: {id: detalle.ordenProvisionId}},
+            productoId: {connect: {id: detalle.productoId}}
             }
         });
     }
