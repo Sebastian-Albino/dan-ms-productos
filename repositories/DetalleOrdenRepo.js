@@ -76,7 +76,7 @@ async function getDetalleByProductoId(prodId){
 
 
 
-async function updateOrden(idOrden, orden) {
+async function updateDetalle(idOrden, orden) {
     
     try{
         return await prisma.ordenProvision.update({
@@ -96,6 +96,6 @@ async function updateOrden(idOrden, orden) {
     }
 }
 
-export default {createOrden, getAllOrdenes, getOrdenById, getOrdenByProveedorId,
-    getOrdenesPorFecha, updateEstadoOrden, updateOrden}
+export default {createDetalle, getAllDetalles, getDetalleById, getDetalleByOrdenId,
+getDetalleByProductoId, updateDetalle}
 
