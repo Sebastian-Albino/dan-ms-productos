@@ -43,7 +43,7 @@ async function getProductosByNombre(nombreProd){
 
     try{
         const nameClause = {};
-        if(nombre !== null){
+        if(nombreProd !== null){
             nameClause = {nombre: {contains: nombreProd}};
         }
         return await prisma.producto.findMany({
