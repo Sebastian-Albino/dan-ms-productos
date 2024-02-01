@@ -1,5 +1,7 @@
 import proveedorService from "../services/ProveedorService";
 
+//TODO: agregar metodo para crear
+
 async function listarProveedoresPorNombre(req, res){
 
     try{
