@@ -137,6 +137,25 @@ async function updateProducto(idProd, prod) {
     }
 }
 
+async function updateStockProducto(idProd, cantidad){
+
+    try{
+        const updatedProd = prisma.producto.update({
+            where: {
+                id: idProd
+            },
+            data: {
+                stockActual: {
+                    decrement: cantidad
+                }
+            }
+        });
+        return updatedProd;
+    }catch(error){
+        throw error;
+    }
+}
+
 async function deleteProducto(idProd){
 
     try{
@@ -153,5 +172,5 @@ async function deleteProducto(idProd){
 
 export default {createProducto, getProductoById, getProductoByProveedor,
     getProductosByNombre, getProductosByNombreDeCat, getProductosByStock,
-    updateProducto, deleteProducto}
+    updateProducto,updateStockProducto, deleteProducto}
 

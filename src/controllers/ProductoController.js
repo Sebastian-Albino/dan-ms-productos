@@ -7,15 +7,15 @@ async function crearProducto(req, res){
 
     if(camposFaltantes.length > 0){
         return res.status(400).json({
-            error: "Faltan campos",
+            error: "Campos incompletos",
             camposFaltantes: camposFaltantes
-        })
+        });
     }
 
     try{
 
-        const producto = productoService.crearProducto(prod);
-        return res.status(200).json(producto);
+        const producto = await productoService.crearProducto(prod);
+        return res.status(201).json(producto);
     }catch(error){
         return res.status(500).json({
             error: error.message
@@ -44,7 +44,7 @@ async function listarProductos(req, res){
 
     try{
         const nombre = req.query.nombre;
-        const productos = productoService.listarProductos(prod);
+        const productos = await productoService.listarProductos(prod);
         return res.status(200).json(productos);
     }catch(error){
         return res.status(500).json({
@@ -58,7 +58,7 @@ async function listarProductoPorId(req, res){
 
     try{
         const id = req.params.id;
-        const producto = productoService.listarProductoPorId(id);
+        const producto = await productoService.listarProductoPorId(id);
         return res.status(200).json(producto);
     }catch(error){
         return res.status(500).json({
@@ -72,7 +72,7 @@ async function listarProductosPorNombreCategoria(req, res){
 
     try{
         const nombre = req.params.nombre;
-        const productos = productoService.listarProductosPorCategoria(nombre);
+        const productos = await productoService.listarProductosPorCategoria(nombre);
         return res.status(200).json(productos);
     }catch(error){
         return res.status(500).json({
@@ -86,7 +86,7 @@ async function listarProductoPorNombreProveedor(req, res){
 
     try{
         const nombre = req.params.nombre;
-        const productos = productoService.listarProductosPorProveedor(nombre);
+        const productos = await productoService.listarProductosPorProveedor(nombre);
         return res.status(200).json(productos);
     }catch(error){
         return res.status(500).json({
@@ -99,7 +99,7 @@ async function listarProductoPorStockActual(req, res){
 
     try{
         const cantidad = req.params.cantidad;
-        const productos = productoService.listarProductosPorStock(cantidad);
+        const productos = await productoService.listarProductosPorStock(cantidad);
         return res.status(200).json(productos);
     }catch(error){
         return res.status(500).json({
@@ -113,7 +113,7 @@ async function modificarProducto(req, res){
     try{
         const id = req.params.id;
         const prod = req.body;
-        const producto = productoService.modificarProducto(id, prod);
+        const producto = await productoService.modificarProducto(id, prod);
         return res.status(200).json(producto);
     }catch(error){
         return res.status(500).json({
@@ -122,11 +122,27 @@ async function modificarProducto(req, res){
     }
 }
 
+async function modificarStockProducto(req, res){
+
+    try{
+        const id = req.params.id;
+        const cantidad = req.params.cantidad;
+        const producto = await productoService.modificarStockProducto(id, cantidad);
+        return res.status(200).json(producto);
+    }catch(error){
+        return res.status(500).json({
+            error: error.message
+        });
+    }
+}
+
+
+
 async function eliminarProducto(req, res){
 
     try{
         const id = req.params.id;
-        const producto = productoService.eliminarProducto(id);
+        const producto = await productoService.eliminarProducto(id);
         return res.status(200).json(producto);
     }catch(error){
         return res.status(500).json({
@@ -138,7 +154,8 @@ async function eliminarProducto(req, res){
 export default {crearProducto, listarProductoPorId, listarProductos,
 listarProductoPorNombreProveedor, listarProductoPorStockActual,
 listarProductosPorNombreCategoria, listarProductosPorNombreCategoria,
-listarProductoPorNombreProveedor, modificarProducto, eliminarProducto}
+listarProductoPorNombreProveedor, modificarProducto, eliminarProducto,
+modificarStockProducto}
 
 
 

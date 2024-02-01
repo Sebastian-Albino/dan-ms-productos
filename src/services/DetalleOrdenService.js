@@ -34,4 +34,4 @@ async function modificarDetalle(idDetalle, detalleOrd){
 
 
 export default {crearDetalle, listarDetallePorId, listarDetalles,
-listarDetallePorIdProducto, listarDetallesPorOrden}
+listarDetallePorIdProducto, listarDetallesPorOrden, modificarDetalle}
