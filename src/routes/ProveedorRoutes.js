@@ -1,13 +1,9 @@
 import { Router } from "express";
-import controller from "../controllers/";
+import controller from "../controllers/ProveedorController";
 
-const routerProductos = Router();
+const routerProveedor = Router();
 
-routerProductos.post('/', controller.crearProducto);
-routerProductos.get('/', controller.listarProductos);
-routerProductos.get('/:id', controller.listarProductoPorId);
-routerProductos.get('/proveedor/:nombre', controller.listarProductoPorNombreProveedor);
-routerProductos.get('/categoria/:nombre', controller.listarProductosPorNombreCategoria);
-routerProductos.get('/stock/:cantidad', controller.listarProductoPorStockActual);
-routerProductos.put('/:id', controller.modificarProducto);
-routerProductos.delete('/:id', controller.eliminarProducto);
+routerProveedor.get('/:nombre', controller.listarProveedoresPorNombre);
+routerProductos.get('/:id', controller.listarProveedorPorId);
+
+export default {routerProveedor}

@@ -11,3 +11,5 @@ routerProductos.get('/categoria/:nombre', controller.listarProductosPorNombreCat
 routerProductos.get('/stock/:cantidad', controller.listarProductoPorStockActual);
 routerProductos.put('/:id', controller.modificarProducto);
 routerProductos.delete('/:id', controller.eliminarProducto);
+
+export default {routerProductos}

@@ -38,8 +38,8 @@ function checkData(prod) {
 async function listarDetalles(req, res){
 
     try{
-        const detalle = await detalleOrdenService.listarDetalles();
-        return res.status(200).json(productos);
+        const detalles = await detalleOrdenService.listarDetalles();
+        return res.status(200).json(detalles);
     }catch(error){
         return res.status(500).json({
             error: error.message
