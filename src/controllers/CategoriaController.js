@@ -1,5 +1,18 @@
 import categoriaService from "../services/CategoriaService";
 
+async function crearCategoria(req, res){
+ 
+    try{
+        const nombre = req.params.nombre;
+        const cat = await categoriaService.createCategoria(nombre);
+        return res.status(201).json(cat);
+    }catch(error){
+        return res.status(500).json({
+            error: error.message
+        });
+    }
+}
+
 async function listarCategoriasPorNombre(req, res){
 
     try{
@@ -41,5 +54,5 @@ async function listarCategorias(req, res){
 
 
 export default {listarCategoriaPorId, listarCategoriasPorNombre,
-listarCategorias}
+listarCategorias, crearCategoria}
 
