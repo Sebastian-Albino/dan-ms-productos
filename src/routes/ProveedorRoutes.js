@@ -6,4 +6,4 @@ const routerProveedor = Router();
 routerProveedor.get('/:nombre', controller.listarProveedoresPorNombre);
 routerProveedor.get('/:id', controller.listarProveedorPorId);
 
-export default {routerProveedor}
+export default routerProveedor;

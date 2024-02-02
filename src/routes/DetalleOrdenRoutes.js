@@ -10,4 +10,4 @@ routerDetalleOrden.get('/orden/:id', controller.listarDetallesPorOrden);
 routerDetalleOrden.get('/producto/:id', controller.listarDetallesPorIdProducto);
 routerDetalleOrden.put('/:id', controller.modificarDetalle);
 
-export default {routerDetalleOrden}
+export default routerDetalleOrden;

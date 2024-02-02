@@ -12,4 +12,4 @@ routerProductos.get('/stock/:cantidad', controller.listarProductoPorStockActual)
 routerProductos.put('/:id', controller.modificarProducto);
 routerProductos.delete('/:id', controller.eliminarProducto);
 
-export default {routerProductos};
+export default routerProductos;

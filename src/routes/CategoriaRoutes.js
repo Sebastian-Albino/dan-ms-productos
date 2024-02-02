@@ -8,4 +8,4 @@ routerCategoria.get('/', controller.listarCategorias);
 routerCategoria.get('/id/:id', controller.listarCategoriaPorId);
 routerCategoria.get('/nombre/:nombre', controller.listarCategoriasPorNombre);
 
-export default {routerCategoria}
+export default routerCategoria;

@@ -11,4 +11,4 @@ routerOrdenProvision.get('/fecha/:id', controller.listarOrdenesPorFecha);
 routerOrdenProvision.put('/:id', controller.modificarOrden);
 routerOrdenProvision.put('/estado/:id', controller.modificarEstadoOrden);
 
-export default {routerOrdenProvision}
+export default routerOrdenProvision;
