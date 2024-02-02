@@ -1,4 +1,4 @@
-import productoRepo from "../repositories/ProductoRepo";
+import productoRepo from "../repositories/ProductoRepo.js";
 
 async function crearProducto(producto){
 

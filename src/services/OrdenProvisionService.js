@@ -1,4 +1,4 @@
-import ordenRepo from "../repositories/OrdenProvisionRepo";
+import ordenRepo from "../repositories/OrdenProvisionRepo.js";
 
 
 async function crearOrden(orden){

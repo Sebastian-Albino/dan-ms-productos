@@ -1,5 +1,5 @@
 import { Router } from "express";
-import controller from "../controllers/ProductoController";
+import controller from "../controllers/ProductoController.js";
 
 const routerProductos = Router();
 
@@ -12,4 +12,4 @@ routerProductos.get('/stock/:cantidad', controller.listarProductoPorStockActual)
 routerProductos.put('/:id', controller.modificarProducto);
 routerProductos.delete('/:id', controller.eliminarProducto);
 
-export default {routerProductos}
+export default {routerProductos};

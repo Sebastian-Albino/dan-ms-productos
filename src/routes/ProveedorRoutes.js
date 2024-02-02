@@ -1,5 +1,5 @@
 import { Router } from "express";
-import controller from "../controllers/ProveedorController";
+import controller from "../controllers/ProveedorController.js";
 
 const routerProveedor = Router();
 

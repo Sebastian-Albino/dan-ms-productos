@@ -1,4 +1,4 @@
-import detalleRepo from "../repositories/DetalleOrdenRepo";
+import detalleRepo from "../repositories/DetalleOrdenRepo.js";
 
 
 async function crearDetalle(detalleOrden){

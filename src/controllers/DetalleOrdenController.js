@@ -1,4 +1,4 @@
-import detalleOrdenService from "../services/DetalleOrdenService";
+import detalleOrdenService from "../services/DetalleOrdenService.js";
 
 async function crearDetalleOrden(req, res){
 

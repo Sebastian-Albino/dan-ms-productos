@@ -1,4 +1,4 @@
-import proveedorRepo from "../repositories/ProveedorRepo";
+import proveedorRepo from "../repositories/ProveedorRepo.js";
 
 async function crearProveedor(proveedor){
 

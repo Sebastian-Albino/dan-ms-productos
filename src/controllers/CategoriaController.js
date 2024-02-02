@@ -1,4 +1,4 @@
-import categoriaService from "../services/CategoriaService";
+import categoriaService from "../services/CategoriaService.js";
 
 async function crearCategoria(req, res){
  

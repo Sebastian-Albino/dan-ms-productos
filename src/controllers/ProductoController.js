@@ -1,4 +1,4 @@
-import productoService from "../services/ProductoService";
+import productoService from "../services/ProductoService.js";
 
 async function crearProducto(req, res){
 

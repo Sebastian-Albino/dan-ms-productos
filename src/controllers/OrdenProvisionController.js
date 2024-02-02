@@ -1,6 +1,6 @@
-import ordenProvisionService from "../services/OrdenProvisionService";
-import detalleOrdenService from "../services/DetalleOrdenService";
-import productoService from "../services/ProductoService";
+import ordenProvisionService from "../services/OrdenProvisionService.js";
+import detalleOrdenService from "../services/DetalleOrdenService.js";
+import productoService from "../services/ProductoService.js";
 
 async function crearOrdenProvision(req, res){
 

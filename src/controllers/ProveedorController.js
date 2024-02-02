@@ -1,4 +1,4 @@
-import proveedorService from "../services/ProveedorService";
+import proveedorService from "../services/ProveedorService.js";
 
 //TODO: agregar metodo para crear
 
