@@ -8,6 +8,6 @@ routerDetalleOrden.get('/', controller.listarDetalles);
 routerDetalleOrden.get('/:id', controller.listarDetallePorId);
 routerDetalleOrden.get('/orden/:id', controller.listarDetallesPorOrden);
 routerDetalleOrden.get('/producto/:id', controller.listarDetallesPorIdProducto);
-routerProductos.put('/:id', controller.modificarDetalle);
+routerDetalleOrden.put('/:id', controller.modificarDetalle);
 
 export default {routerDetalleOrden}

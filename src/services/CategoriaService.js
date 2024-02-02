@@ -1,4 +1,4 @@
-import categoriaRepo from "../repositories/CategoriaRepo";
+import categoriaRepo from "../repositories/CategoriaRepo.js";
 
 async function createCategoria(categoria){
 
