@@ -128,7 +128,10 @@ async function modificarEstadoOrden(req, res){
         const orden = await ordenProvisionService.modificarEstadoOrden(idOrden, fechaRecep);
 
         if(orden.fechaRecepcion)
-            return res.status(200).json(orden);
+            return res.status(200).json({
+                orden: orden,
+                productos: actualizarStockProds(orden.id)
+            });
     }catch(error){
         return res.status(500).json({
             error: error.message
@@ -136,10 +139,9 @@ async function modificarEstadoOrden(req, res){
     }
 }
 
-async function actualizarStockProds(req, res){
+async function actualizarStockProds(idOrden){
 
     try{
-        const idOrden = req.params.id;
         const detalles = await detalleOrdenService.listarDetallesPorOrden(idOrden);
         let productosAct = [];
 

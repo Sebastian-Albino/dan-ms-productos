@@ -42,7 +42,7 @@ async function getProductoById(prodId){
 async function getProductosByNombre(nombreProd){
 
     try{
-        const nameClause = {};
+        let nameClause = {};
         if(nombreProd !== null){
             nameClause = {nombre: {contains: nombreProd}};
         }
