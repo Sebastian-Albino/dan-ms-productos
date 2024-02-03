@@ -44,11 +44,12 @@ async function listarProductos(req, res){
 
     try{
         const nombre = req.query.nombre;
-        const productos = await productoService.listarProductos(prod);
+        console.log(nombre);
+        const productos = await productoService.listarProductos(nombre);
         return res.status(200).json(productos);
     }catch(error){
         return res.status(500).json({
-            error: error.message
+            error: error.message,
         });
     }
 }
