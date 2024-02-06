@@ -2,10 +2,26 @@ import proveedorService from "../services/ProveedorService.js";
 
 //TODO: agregar metodo para crear
 
+async function crearProveedor(req, res){
+ 
+    try{
+        const prov = req.body;
+        const provCreado = await proveedorService.crearProveedor(prov);
+        return res.status(201).json(prov);
+    }catch(error){
+        return res.status(500).json({
+            error: error.message
+        });
+    }
+}
+
+
+
 async function listarProveedoresPorNombre(req, res){
 
     try{
-        const nombre = req.query.nombre;
+        const nombre = req.params.nombre;
+        console.log(nombre);
         const proveedores = await proveedorService.listarProveedorPorNombre(nombre);
         return res.status(200).json(proveedores);
     }catch(error){
@@ -29,5 +45,6 @@ async function listarProveedorPorId(req, res){
 }
 
 
-export default {listarProveedorPorId, listarProveedoresPorNombre}
+export default {listarProveedorPorId, listarProveedoresPorNombre,
+crearProveedor}
 

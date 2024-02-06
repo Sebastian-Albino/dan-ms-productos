@@ -3,7 +3,9 @@ import controller from "../controllers/ProveedorController.js";
 
 const routerProveedor = Router();
 
-routerProveedor.get('/:nombre', controller.listarProveedoresPorNombre);
-routerProveedor.get('/:id', controller.listarProveedorPorId);
+
+routerProveedor.post('/', controller.crearProveedor);
+routerProveedor.get('/nombre/:nombre', controller.listarProveedoresPorNombre);
+routerProveedor.get('/id/:id', controller.listarProveedorPorId);
 
 export default routerProveedor;
