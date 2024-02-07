@@ -86,8 +86,8 @@ async function updateDetalle(idDetalle, detalle) {
             data: {
             cantidad: detalle.cantidad,
             precio: detalle.precio,
-            ordenProvisionId: {connect: {id: detalle.ordenProvisionId}},
-            productoId: {connect: {id: detalle.productoId}}
+            ordenProvision: {connect: {id: detalle.ordenProvisionId}},
+            producto: {connect: {id: detalle.productoId}}
             }
         });
     }

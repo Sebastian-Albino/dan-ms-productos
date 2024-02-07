@@ -3,7 +3,8 @@ import productoService from "../services/ProductoService.js";
 async function crearProducto(req, res){
 
     const prod = req.body;
-    const camposFaltantes = checkData(req);
+    //console.log(prod);
+    const camposFaltantes = checkData(prod);
 
     if(camposFaltantes.length > 0){
         return res.status(400).json({
@@ -17,6 +18,7 @@ async function crearProducto(req, res){
         const producto = await productoService.crearProducto(prod);
         return res.status(201).json(producto);
     }catch(error){
+        console.log(error);
         return res.status(500).json({
             error: error.message
         });

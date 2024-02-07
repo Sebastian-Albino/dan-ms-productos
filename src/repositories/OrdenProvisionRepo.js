@@ -10,7 +10,7 @@ async function createOrden(orden) {
             fechaGeneracion: orden.fechaGeneracion,
             fechaRecepcion: orden.fechaGeneracion,
             esCancelada: orden.esCancelada,
-            proveedorId: {connect: {id: prod.proveedorId}}
+            proveedor: {connect: {id: prod.proveedorId}}
             }
         });
     }

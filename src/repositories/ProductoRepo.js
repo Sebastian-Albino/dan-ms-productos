@@ -3,19 +3,29 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient()
 
 async function createProducto(prod) {
-    
+    console.log(prod);
     try{
         return await prisma.producto.create({
             data: {
-            nombre: prod.nombre,
-            descripcion: prod.descripcion,
-            stockActual: prod.stockActual,
-            proveedorId: {connect: {id: prod.proveedorId}},
-            categoriaId: {connect: {id: prod.categoriaId}}
+                nombre: prod.nombre,
+                descripcion: prod.descripcion,
+                stockActual: prod.stockActual,
+                proveedor: {
+                    connect: {
+                        id: prod.proveedorId
+                    }
+                },
+                categoria: {
+                    connect: {
+                        id: prod.categoriaId
+                    }
+                }
+                
             }
         });
     }
     catch(error){
+        console.error(error);
         throw error;
     }
 }
