@@ -38,7 +38,9 @@ async function getCategoriaByName(catName){
 
         return await prisma.categoria.findMany({
             where: {
-                nombre: {contains: catName}
+                nombre: {
+                    contains: catName
+                }
             } 
         });
     }

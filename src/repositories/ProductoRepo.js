@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient()
 
 async function createProducto(prod) {
-    console.log(prod);
+    //console.log(prod);
     try{
         return await prisma.producto.create({
             data: {
@@ -74,7 +74,11 @@ async function getProductosByNombreDeCat(nombreCat){
     try{
         return await prisma.producto.findMany({
             where: {
-                categoria: nombreCat
+                categoria: {
+                    nombre: {
+                        contains: nombreCat
+                    }
+                }
             },
             include: {
                 proveedor: true,
@@ -90,7 +94,7 @@ async function getProductosByNombreDeCat(nombreCat){
 async function getProductoByProveedor(nombreProv){
 
     try{
-        return await prisma.findMany({
+        return await prisma.producto.findMany({
             where: {
                 proveedor: {
                     nombre: {contains: nombreProv}
@@ -126,19 +130,23 @@ async function getProductosByStock(stock){
     }
 }
 
+// Solo se modifican los campos pasados en el body,
+// los demas campos no pasados quedan como estaban en la db
 async function updateProducto(idProd, prod) {
     
     try{
+        const prodDb = await getProductoById(idProd);
+
         return await prisma.producto.update({
             where: {
                 id: parseInt(idProd)
             },
             data: {
-            nombre: prod.nombre,
-            descripcion: prod.descripcion,
-            stockActual: prod.stockActual,
-            proveedorId: {connect: {id: prod.proveedorId}},
-            categoriaId: {connect: {id: prod.categoriaId}}
+            nombre: prod.nombre ? prod.nombre : prodDb.nombre,
+            descripcion: prod.descripcion ? prod.descripcion : prodDb.descripcion,
+            stockActual: prod.stockActual ? prod.stockActual : prodDb.stockActual,
+            proveedorId: prod.proveedorId ? prod.proveedorId : prodDb.proveedorId,
+            categoriaId: prod.categoriaId ? prod.categoriaId : prodDb.categoriaId
             }
         });
     }

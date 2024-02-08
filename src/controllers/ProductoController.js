@@ -46,7 +46,6 @@ async function listarProductos(req, res){
 
     try{
         const nombre = req.query.nombre;
-        console.log(nombre);
         const productos = await productoService.listarProductos(nombre);
         return res.status(200).json(productos);
     }catch(error){
@@ -89,6 +88,7 @@ async function listarProductoPorNombreProveedor(req, res){
 
     try{
         const nombre = req.params.nombre;
+        console.log(nombre);
         const productos = await productoService.listarProductosPorProveedor(nombre);
         return res.status(200).json(productos);
     }catch(error){
@@ -129,7 +129,7 @@ async function modificarStockProducto(req, res){
 
     try{
         const id = req.params.id;
-        const cantidad = req.params.cantidad;
+        const cantidad = req.query.cantidad;
         const producto = await productoService.modificarStockProducto(id, cantidad);
         return res.status(200).json(producto);
     }catch(error){
