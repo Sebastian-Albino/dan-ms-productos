@@ -31,7 +31,7 @@ CREATE TABLE "Producto" (
 CREATE TABLE "OrdenProvision" (
     "id" SERIAL NOT NULL,
     "fechaGeneracion" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "fechaRecepcion" TIMESTAMP(3) NOT NULL,
+    "fechaRecepcion" TIMESTAMP(3),
     "esCancelada" BOOLEAN NOT NULL DEFAULT false,
     "proveedorId" INTEGER NOT NULL,
 

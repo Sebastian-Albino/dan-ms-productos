@@ -39,10 +39,13 @@ async function crearOrdenProvision(req, res){
 function checkData(orden) {
     let camposFaltantes = [];
 
-    if(!orden.fechaGeneracion) camposFaltantes.push('fechaGeneracion');
-    if(!orden.fechaRecepcion) camposFaltantes.push('fechaRecepcion');
+    //Se comenta el check de fecha generacion porque ya esta
+    //como default la actual de la máquina en la db y la fecha
+    // recepcin esta por defecto como null
+    //if(!orden.fechaGeneracion) camposFaltantes.push('fechaGeneracion');
+    //if(!orden.fechaRecepcion) camposFaltantes.push('fechaRecepcion');
     if(!orden.proveedorId) camposFaltantes.push('proveedorId');
-    if(!orden.esCancelada) camposFaltantes.push('esCancelada');
+    if(orden.esCancelada) camposFaltantes.push('esCancelada');
     
     return camposFaltantes;
 }
@@ -109,7 +112,9 @@ async function modificarOrden(req, res){
 
     try{
         const idOrden = req.params.id;
-        const orden = req.params.body;
+        const orden = req.body;
+        console.log(idOrden);
+        console.log(orden);
         const ordenResultante = await ordenProvisionService.modificarOrden(idOrden, orden);
         return res.status(200).json(ordenResultante);
     }catch(error){

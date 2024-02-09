@@ -8,9 +8,9 @@ async function createOrden(orden) {
         return await prisma.ordenProvision.create({
             data: {
             fechaGeneracion: orden.fechaGeneracion,
-            fechaRecepcion: orden.fechaGeneracion,
+            fechaRecepcion: orden.fechaRecepcion,
             esCancelada: orden.esCancelada,
-            proveedor: {connect: {id: prod.proveedorId}}
+            proveedor: {connect: {id: orden.proveedorId}}
             }
         });
     }
@@ -82,15 +82,17 @@ async function getOrdenesPorFecha(desde, hasta){
 async function updateOrden(idOrden, orden) {
     
     try{
+
+        const ordenDb = await getOrdenById(idOrden);
+        //console.log(orden.fechaGeneracion);
+        //console.log(ordenDb.fechaGeneracion);
         return await prisma.ordenProvision.update({
             where: {
                 id: parseInt(idOrden)
             },
             data: {
-            fechaGeneracion: orden.fechaGeneracion,
-            fechaRecepcion: orden.fechaGeneracion,
-            esCancelada: orden.esCancelada,
-            proveedorId: {connect: {id: prod.proveedorId}}
+            fechaGeneracion: orden.fechaGeneracion ? orden.fechaGeneracion : ordenDb.fechaGeneracion,
+            proveedorId: orden.proveedorId ? orden.proveedorId : ordenDb.proveedorId
             }
         });
     }

@@ -8,7 +8,7 @@ async function crearOrden(orden){
 
 async function listarOrdenes(){
     //TODO: validar logica de negocio
-    return await ordenRepo.getAllOrdenes(nombre);
+    return await ordenRepo.getAllOrdenes();
 }
 
 async function listarOrdenPorId(idOrden){
