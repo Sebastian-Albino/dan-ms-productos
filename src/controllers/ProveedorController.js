@@ -7,7 +7,7 @@ async function crearProveedor(req, res){
     try{
         const prov = req.body;
         const provCreado = await proveedorService.crearProveedor(prov);
-        return res.status(201).json(prov);
+        return res.status(201).json(provCreado);
     }catch(error){
         return res.status(500).json({
             error: error.message

@@ -7,7 +7,7 @@ routerOrdenProvision.post('/', controller.crearOrdenProvision);
 routerOrdenProvision.get('/', controller.listarOrdenes);
 routerOrdenProvision.get('/:id', controller.listarOrdenesPorId);
 routerOrdenProvision.get('/proveedor/:id', controller.listarOrdenesPorIdProveedor);
-routerOrdenProvision.get('/fecha/:id', controller.listarOrdenesPorFecha);
+routerOrdenProvision.get('/fecha/:fecha', controller.listarOrdenesPorFecha);
 routerOrdenProvision.put('/:id', controller.modificarOrden);
 routerOrdenProvision.put('/estado/:id', controller.modificarEstadoOrden);
 
