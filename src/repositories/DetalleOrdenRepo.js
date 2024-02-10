@@ -7,10 +7,19 @@ async function createDetalle(detalleOrden) {
     try{
         return await prisma.ordenProvisionDetalle.create({
             data: {
-            fechaGeneracion: detalleOrden.fechaGeneracion,
-            fechaRecepcion: detalleOrden.fechaGeneracion,
-            esCancelada: detalleOrden.esCancelada,
-            ordenProvisionId: {connect: {id: detalleOrden.ordenProvisionId}}
+            ordenProvision: {
+                connect: {
+                    id: detalleOrden.ordenProvisionId
+                }
+            },
+            producto:{
+                connect: {
+                    id: detalleOrden.productoId
+                }
+            },
+            cantidad: detalleOrden.cantidad,
+            precio: detalleOrden.precio
+
             }
         });
     }

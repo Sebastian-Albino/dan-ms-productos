@@ -11,10 +11,13 @@ async function createOrden(orden) {
             fechaRecepcion: orden.fechaRecepcion,
             esCancelada: orden.esCancelada,
             proveedor: {connect: {id: orden.proveedorId}}
+            },
+            include: {
+                proveedor: true,
+                detalles: true
             }
         });
-    }
-    catch(error){
+    }catch(error){
         throw error;
     }
 }
@@ -26,6 +29,10 @@ async function getOrdenById(ordId){
         return await prisma.ordenProvision.findUnique({
             where: {
                 id: parseInt(ordId)
+            },
+            include: {
+                proveedor: true,
+                detalles: true
             } 
         });
     }

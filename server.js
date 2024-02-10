@@ -2,7 +2,6 @@ import Express from "express";
 
 import routerProductos from "./src/routes/ProductoRoutes.js"
 import routerOrdenProvision from "./src/routes/OrdenProvisionRoutes.js"
-import routerDetalleOrden from "./src/routes/DetalleOrdenRoutes.js"
 import routerProveedores from "./src/routes/ProveedorRoutes.js"
 import routerCategoria from "./src/routes/CategoriaRoutes.js"
 

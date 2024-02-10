@@ -1,5 +1,4 @@
 import ordenProvisionService from "../services/OrdenProvisionService.js";
-import detalleOrdenService from "../services/DetalleOrdenService.js";
 import productoService from "../services/ProductoService.js";
 
 async function crearOrdenProvision(req, res){
@@ -113,8 +112,6 @@ async function modificarOrden(req, res){
     try{
         const idOrden = req.params.id;
         const orden = req.body;
-        console.log(idOrden);
-        console.log(orden);
         const ordenResultante = await ordenProvisionService.modificarOrden(idOrden, orden);
         return res.status(200).json(ordenResultante);
     }catch(error){
