@@ -56,9 +56,11 @@ async function getOrdenByProveedorId(idProv){
     try{
         return await prisma.ordenProvision.findMany({
             where: {
-                proveedor: {
-                    id: parseInt(idProv)
-                }
+                proveedorId: parseInt(idProv)
+            },
+            include: {
+                proveedor: true,
+                detalles: true
             }
         });
     }

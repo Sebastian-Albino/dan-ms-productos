@@ -81,7 +81,8 @@ async function listarOrdenesPorId(req, res){
 async function listarOrdenesPorIdProveedor(req, res){
 
     try{
-        const idProv = req.params.proveedorId;
+        const idProv = req.params.id;
+        console.log(idProv);
         const ordenes = await ordenProvisionService.listarOrdenesPorProveedor(idProv);
         return res.status(200).json(ordenes);
     }catch(error){
