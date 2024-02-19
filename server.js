@@ -16,6 +16,16 @@ app.get('/', (req, res) => {
     })
 })
 
+//MIME type
+
+app.use('/', Express.static('public', {
+    setHeaders: (res, path) => {
+      if (path.endsWith('.js')) {
+        res.setHeader('Content-Type', 'text/javascript');
+      }
+    }
+}));
+
 //use de routers
 
 app.use('/api/producto', routerProductos);
