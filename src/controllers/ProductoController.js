@@ -154,11 +154,25 @@ async function eliminarProducto(req, res){
     }
 }
 
+async function listarStockProductoPorId(req, res){
+
+    try{
+        const id = req.params.id;
+        const producto = await productoService.listarProductoPorId(id);
+        console.log("stock: ", producto.stockActual);
+        return res.status(200).json(producto.stockActual);
+    }catch(error){
+        return res.status(500).json({
+            error: error.message
+        });
+    }
+}
+
 export default {crearProducto, listarProductoPorId, listarProductos,
 listarProductoPorNombreProveedor, listarProductoPorStockActual,
 listarProductosPorNombreCategoria, listarProductosPorNombreCategoria,
 listarProductoPorNombreProveedor, modificarProducto, eliminarProducto,
-modificarStockProducto}
+modificarStockProducto, listarStockProductoPorId}
 
 
 
